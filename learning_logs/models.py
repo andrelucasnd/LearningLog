@@ -7,11 +7,11 @@ from django.db import models
 class Topic(models.Model):
 	"""A topic user is learning about"""
 	text = models.CharField(max_length=200)
-	data_added = models.DateTimeField(auto_now_add=True)
+	date_added = models.DateTimeField(auto_now_add=True)
 
-def __str__(self):
-	""""Return a string representation of the model."""
-	return self.text
+	def __unicode__(self):
+		""""Return a string representation of the model."""
+		return self.text
 
 class Entry(models.Model):
 	""""Something specific learned about a topic"""
@@ -19,12 +19,12 @@ class Entry(models.Model):
 	text = models.TextField()
 	date_added = models.DateTimeField(auto_now_add=True)
 
-class Meta:
-	verbose_name_plural = 'entries'
+	class Meta:
+		verbose_name_plural = 'entries'
 
-def __str__(self):
-	"""Return a string representation of the model."""
-	return self.text[:50] + "..."
+	def __unicode__(self):
+		"""Return a string representation of the model."""
+		return self.text[:50] + "..."
 
 
 
